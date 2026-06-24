@@ -30,7 +30,7 @@ import {
   Quote,
   ArrowUp,
 } from "lucide-react";
-import profile from "@/assets/profile.jpg";
+import profile from "@/assets/Rayhan_Potrait.png";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
@@ -141,7 +141,7 @@ export function Hero() {
 
           <img
             src={profile}
-            alt="Rayhan Ahmed portrait"
+            alt="Rayhan Kobir portrait"
             width={1024}
             height={1024}
             className="relative z-10 h-[380px] w-[380px] sm:h-[440px] sm:w-[440px] object-cover rounded-full"
