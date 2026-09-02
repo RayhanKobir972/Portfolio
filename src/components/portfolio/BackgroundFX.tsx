@@ -38,24 +38,21 @@ export function BackgroundFX() {
       <div
         className="absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full blur-3xl opacity-30 animate-blob"
         style={{
-          background:
-            "radial-gradient(circle, #06b6d4 0%, transparent 70%)",
+          background: "radial-gradient(circle, #06b6d4 0%, transparent 70%)",
           transform: "translate(var(--mx), var(--my))",
         }}
       />
       <div
         className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full blur-3xl opacity-25 animate-blob"
         style={{
-          background:
-            "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
+          background: "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
           animationDelay: "-6s",
         }}
       />
       <div
         className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full blur-3xl opacity-20 animate-blob"
         style={{
-          background:
-            "radial-gradient(circle, #22d3ee 0%, transparent 70%)",
+          background: "radial-gradient(circle, #22d3ee 0%, transparent 70%)",
           animationDelay: "-12s",
         }}
       />
@@ -77,7 +74,10 @@ export function CursorGlow() {
     const el = ref.current;
     if (!el) return;
     let raf = 0;
-    let tx = 0, ty = 0, cx = 0, cy = 0;
+    let tx = 0,
+      ty = 0,
+      cx = 0,
+      cy = 0;
     const move = (e: MouseEvent) => {
       tx = e.clientX;
       ty = e.clientY;

@@ -32,7 +32,9 @@ export function Navbar() {
 
   const go = (id: string) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -95,9 +97,15 @@ export function Navbar() {
             className="lg:hidden text-foreground p-2"
           >
             <div className="space-y-1.5">
-              <span className={`block h-0.5 w-6 bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-current transition ${open ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 w-6 bg-current transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span
+                className={`block h-0.5 w-6 bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-current transition ${open ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`block h-0.5 w-6 bg-current transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
+              />
             </div>
           </button>
         </nav>
@@ -110,7 +118,9 @@ export function Navbar() {
                   <button
                     onClick={() => go(l.id)}
                     className={`block w-full text-left px-4 py-3 rounded-lg ${
-                      active === l.id ? "bg-white/5 text-foreground" : "text-muted-foreground"
+                      active === l.id
+                        ? "bg-white/5 text-foreground"
+                        : "text-muted-foreground"
                     }`}
                   >
                     {l.label}

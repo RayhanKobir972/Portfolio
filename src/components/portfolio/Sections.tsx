@@ -1,5 +1,17 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
-import { useEffect, useRef, useState, type FormEvent, type SVGProps } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "motion/react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type SVGProps,
+} from "react";
 import {
   siWordpress,
   siWoocommerce,
@@ -59,14 +71,24 @@ import p3 from "@/assets/project-3.jpg";
 /* ------------------------------------------------------------------ */
 /* Brand icons (simple-icons + inlined SVGs for missing brands)       */
 /* ------------------------------------------------------------------ */
-function SimpleIconSvg({ icon, className }: { icon: SimpleIcon; className?: string }) {
+function SimpleIconSvg({
+  icon,
+  className,
+}: {
+  icon: SimpleIcon;
+  className?: string;
+}) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
       <path d={icon.path} />
     </svg>
   );
 }
-
 
 const PhotoshopIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 240 234" fill="currentColor" aria-hidden="true" {...props}>
@@ -90,8 +112,9 @@ const VSCodeIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 const goTo = (id: string) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-
+  document
+    .getElementById(id)
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
 
 /* ------------------------------------------------------------------ */
 /* Hero                                                                */
@@ -158,10 +181,12 @@ export function Hero() {
               {[
                 { Icon: Mail, href: "https://rayhankobir972@gmail.com" },
                 { Icon: Github, href: "https://github.com/RayhanKobir972" },
-                { Icon: Linkedin, href: "https://linkedin.com/in/rayhan-kobir972" },
+                {
+                  Icon: Linkedin,
+                  href: "https://linkedin.com/in/rayhan-kobir972",
+                },
                 // { Icon: Dribbble, href: "https://dribbble.com" },
                 // { Icon: Twitter, href: "https://twitter.com" },
-                
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
@@ -190,9 +215,18 @@ export function Hero() {
           </div>
           <div className="absolute inset-0 grid place-items-center">
             <div className="relative h-[420px] w-[420px] sm:h-[480px] sm:w-[480px] rounded-full">
-              <div className="absolute inset-0 rounded-full border border-[var(--accent-cyan)]/30 animate-spin-slow" style={{ boxShadow: "inset 0 0 60px rgba(6,182,212,0.15)" }} />
+              <div
+                className="absolute inset-0 rounded-full border border-[var(--accent-cyan)]/30 animate-spin-slow"
+                style={{ boxShadow: "inset 0 0 60px rgba(6,182,212,0.15)" }}
+              />
               <div className="absolute inset-3 rounded-full border border-white/5" />
-              <div className="absolute -inset-2 rounded-full border border-dashed border-white/10 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
+              <div
+                className="absolute -inset-2 rounded-full border border-dashed border-white/10 animate-spin-slow"
+                style={{
+                  animationDirection: "reverse",
+                  animationDuration: "30s",
+                }}
+              />
             </div>
           </div>
 
@@ -202,7 +236,9 @@ export function Hero() {
             width={1024}
             height={1024}
             className="relative z-10 h-[420px] w-[420px] sm:h-[480px] sm:w-[480px] object-cover rounded-full"
-            style={{ maskImage: "radial-gradient(circle, black 70%, transparent 100%)" }}
+            style={{
+              maskImage: "radial-gradient(circle, black 70%, transparent 100%)",
+            }}
           />
 
           {/* Floating cards */}
@@ -253,14 +289,21 @@ function FloatCard({
       transition={{ duration: 0.6, delay }}
       className={`absolute z-20 ${className}`}
     >
-      <div className="glass rounded-2xl border border-white/10 px-4 py-3 min-w-[160px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] animate-float-y" style={{ animationDelay: `${delay}s` }}>
+      <div
+        className="glass rounded-2xl border border-white/10 px-4 py-3 min-w-[160px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] animate-float-y"
+        style={{ animationDelay: `${delay}s` }}
+      >
         <div className="flex items-center gap-3">
           <div className="grid place-items-center h-8 w-8 rounded-lg bg-white/5 border border-white/10">
             {icon}
           </div>
           <div>
-            <div className="text-sm font-semibold text-foreground leading-none">{title}</div>
-            <div className="mt-1 text-[11px] text-muted-foreground">{subtitle}</div>
+            <div className="text-sm font-semibold text-foreground leading-none">
+              {title}
+            </div>
+            <div className="mt-1 text-[11px] text-muted-foreground">
+              {subtitle}
+            </div>
           </div>
         </div>
       </div>
@@ -292,11 +335,16 @@ export function Stats() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="flex items-center gap-4"
             >
-              <div className="grid place-items-center h-12 w-12 rounded-2xl bg-gradient-primary/10 border border-[var(--accent-cyan)]/20" style={{ background: "rgba(6,182,212,0.08)" }}>
+              <div
+                className="grid place-items-center h-12 w-12 rounded-2xl bg-gradient-primary/10 border border-[var(--accent-cyan)]/20"
+                style={{ background: "rgba(6,182,212,0.08)" }}
+              >
                 <s.icon className="h-5 w-5 text-[var(--accent-cyan)]" />
               </div>
               <div>
-                <div className="font-display text-2xl sm:text-3xl font-bold text-foreground">{s.value}</div>
+                <div className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                  {s.value}
+                </div>
                 <div className="text-xs text-muted-foreground">{s.label}</div>
               </div>
             </motion.div>
@@ -310,7 +358,15 @@ export function Stats() {
 /* ------------------------------------------------------------------ */
 /* Section header                                                      */
 /* ------------------------------------------------------------------ */
-function SectionHeader({ eyebrow, title, desc }: { eyebrow: string; title: React.ReactNode; desc?: string }) {
+function SectionHeader({
+  eyebrow,
+  title,
+  desc,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  desc?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -340,27 +396,36 @@ export function About() {
         <div>
           <SectionHeader
             eyebrow="About Me"
-            title={<>Crafting digital experiences that <span className="text-gradient">inspire.</span></>}
+            title={
+              <>
+                Crafting digital experiences that{" "}
+                <span className="text-gradient">inspire.</span>
+              </>
+            }
           />
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-lg">
-            I'm a passionate WordPress developer with a sharp
-            eye for detail and a love for creating seamless digital
-            experiences. I combine creativity and technology to build websites
-            that are fast, responsive, and genuinely user-friendly.
+            I'm a passionate WordPress developer with a sharp eye for detail and
+            a love for creating seamless digital experiences. I combine
+            creativity and technology to build websites that are fast,
+            responsive, and genuinely user-friendly.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-lg">
             Over the last one years I've shipped 80+ projects for startups,
-            agencies, and growing businesses — from luxury real-estate
-            platforms to high-conversion WooCommerce stores.
+            agencies, and growing businesses — from luxury real-estate platforms
+            to high-conversion WooCommerce stores.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#"
-              onClick={(e) => { e.preventDefault(); goTo("contact"); }}
+              onClick={(e) => {
+                e.preventDefault();
+                goTo("contact");
+              }}
               className="inline-flex items-center gap-2 rounded-xl glass border border-white/10 px-5 py-3 text-sm font-medium hover:border-[var(--accent-cyan)]/40 hover:-translate-y-0.5 transition-all"
             >
-              <Download className="h-4 w-4 text-[var(--accent-cyan)]" /> Download Resume
+              <Download className="h-4 w-4 text-[var(--accent-cyan)]" />{" "}
+              Download Resume
             </a>
             <button
               onClick={() => goTo("experience")}
@@ -382,16 +447,29 @@ export function About() {
             { icon: Smile, label: "Name", value: "Md. Rayhan Kobir" },
             { icon: Mail, label: "Email", value: "rayhankobir972@gmail.com" },
             { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
-            { icon: Briefcase, label: "Experience", value: "1+ Years (WordPress)" },
-            { icon: Globe, label: "Availability", value: "Open to freelance & contract" },
+            {
+              icon: Briefcase,
+              label: "Experience",
+              value: "1+ Years (WordPress)",
+            },
+            {
+              icon: Globe,
+              label: "Availability",
+              value: "Open to freelance & contract",
+            },
           ].map((row) => (
-            <div key={row.label} className="flex items-center gap-4 p-3 rounded-2xl border border-white/5 bg-white/[0.02]">
+            <div
+              key={row.label}
+              className="flex items-center gap-4 p-3 rounded-2xl border border-white/5 bg-white/[0.02]"
+            >
               <div className="grid place-items-center h-10 w-10 rounded-xl bg-[rgba(6,182,212,0.1)] border border-[var(--accent-cyan)]/20">
                 <row.icon className="h-4 w-4 text-[var(--accent-cyan)]" />
               </div>
               <div className="min-w-0">
                 <div className="text-xs text-muted-foreground">{row.label}</div>
-                <div className="text-sm font-medium text-foreground truncate">{row.value}</div>
+                <div className="text-sm font-medium text-foreground truncate">
+                  {row.value}
+                </div>
               </div>
             </div>
           ))}
@@ -416,8 +494,15 @@ function isSimpleIcon(icon: IconLike): icon is SimpleIcon {
   return "path" in icon && typeof (icon as SimpleIcon).path === "string";
 }
 
-function BrandIcon({ icon, className }: { icon: IconLike; className?: string }) {
-  if (isSimpleIcon(icon)) return <SimpleIconSvg icon={icon} className={className} />;
+function BrandIcon({
+  icon,
+  className,
+}: {
+  icon: IconLike;
+  className?: string;
+}) {
+  if (isSimpleIcon(icon))
+    return <SimpleIconSvg icon={icon} className={className} />;
   const C = icon;
   return <C className={className} />;
 }
@@ -477,10 +562,13 @@ export function Skills() {
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-[var(--accent-cyan)]/60" />
           </div>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-            Skills That Power My <span className="text-gradient">Creativity</span>
+            Skills That Power My{" "}
+            <span className="text-gradient">Creativity</span>
           </h2>
           <p className="mt-4 text-muted-foreground">
-            A blend of technical expertise, creative thinking, and problem-solving abilities that help me build exceptional digital experiences.
+            A blend of technical expertise, creative thinking, and
+            problem-solving abilities that help me build exceptional digital
+            experiences.
           </p>
         </motion.div>
 
@@ -504,8 +592,12 @@ export function Skills() {
             <div className="mt-6 grid grid-cols-3 gap-3 border-b border-white/5 pb-6">
               {overviewStats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{s.value}</div>
-                  <div className="mt-1 text-[11px] text-muted-foreground">{s.label}</div>
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">
+                    {s.value}
+                  </div>
+                  <div className="mt-1 text-[11px] text-muted-foreground">
+                    {s.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -517,7 +609,10 @@ export function Skills() {
             <div className="mt-6">
               <a
                 href="#contact"
-                onClick={(e) => { e.preventDefault(); goTo("contact"); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goTo("contact");
+                }}
                 className="inline-flex items-center gap-2 rounded-xl glass border border-white/10 px-4 py-2.5 text-xs font-medium hover:border-[var(--accent-cyan)]/40 hover:-translate-y-0.5 transition-all"
               >
                 <Download className="h-3.5 w-3.5 text-[var(--accent-cyan)]" />
@@ -539,9 +634,14 @@ export function Skills() {
                 <span className="grid place-items-center h-9 w-9 rounded-xl bg-[rgba(6,182,212,0.1)] border border-[var(--accent-cyan)]/30 shrink-0">
                   <Code className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
                 </span>
-                <h3 className="text-lg font-semibold truncate">Technical Skills</h3>
+                <h3 className="text-lg font-semibold truncate">
+                  Technical Skills
+                </h3>
               </div>
-              <a href="#" className="inline-flex items-center gap-1 text-xs text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)] shrink-0">
+              <a
+                href="#"
+                className="inline-flex items-center gap-1 text-xs text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)] shrink-0"
+              >
                 View All Skills <ArrowRight className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -581,9 +681,14 @@ export function Skills() {
                 className="group glass rounded-2xl border border-white/5 p-4 flex flex-col items-center gap-2.5 hover:border-[var(--accent-cyan)]/40 transition-colors"
               >
                 <div className="grid place-items-center h-14 w-14 rounded-xl bg-white/[0.03] border border-white/5 group-hover:border-[var(--accent-cyan)]/30 group-hover:shadow-[0_0_20px_-4px_rgba(6,182,212,0.5)] transition-all">
-                  <BrandIcon icon={t.icon} className="h-7 w-7 text-[var(--accent-cyan-hover)]" />
+                  <BrandIcon
+                    icon={t.icon}
+                    className="h-7 w-7 text-[var(--accent-cyan-hover)]"
+                  />
                 </div>
-                <span className="text-[11px] text-muted-foreground text-center leading-tight">{t.name}</span>
+                <span className="text-[11px] text-muted-foreground text-center leading-tight">
+                  {t.name}
+                </span>
               </motion.div>
             ))}
           </div>
@@ -594,8 +699,16 @@ export function Skills() {
 }
 
 function SkillRow({
-  name, value, icon, delay,
-}: { name: string; value: number; icon: IconLike; delay: number }) {
+  name,
+  value,
+  icon,
+  delay,
+}: {
+  name: string;
+  value: number;
+  icon: IconLike;
+  delay: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   return (
@@ -605,12 +718,19 @@ function SkillRow({
     >
       <div className="flex items-center gap-3">
         <div className="grid place-items-center h-10 w-10 rounded-xl bg-white/[0.03] border border-white/5 shrink-0 group-hover:border-[var(--accent-cyan)]/30 transition-colors">
-          <BrandIcon icon={icon} className="h-5 w-5 text-[var(--accent-cyan-hover)]" />
+          <BrandIcon
+            icon={icon}
+            className="h-5 w-5 text-[var(--accent-cyan-hover)]"
+          />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-baseline justify-between gap-2">
-            <span className="text-sm font-medium text-foreground truncate">{name}</span>
-            <span className="text-[11px] text-muted-foreground tabular-nums shrink-0">{value}%</span>
+            <span className="text-sm font-medium text-foreground truncate">
+              {name}
+            </span>
+            <span className="text-[11px] text-muted-foreground tabular-nums shrink-0">
+              {value}%
+            </span>
           </div>
           <div className="mt-2 relative h-1.5 rounded-full bg-white/5 overflow-visible">
             <motion.div
@@ -645,15 +765,20 @@ function RadarChart({ axes }: { axes: { label: string; value: number }[] }) {
   };
 
   const rings = [0.25, 0.5, 0.75, 1];
-  const dataPath = axes
-    .map((a, i) => {
-      const [x, y] = point(i, radius * (a.value / 100));
-      return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
-    })
-    .join(" ") + " Z";
+  const dataPath =
+    axes
+      .map((a, i) => {
+        const [x, y] = point(i, radius * (a.value / 100));
+        return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
+      })
+      .join(" ") + " Z";
 
   return (
-    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[280px] h-auto" aria-hidden="true">
+    <svg
+      viewBox={`0 0 ${size} ${size}`}
+      className="w-full max-w-[280px] h-auto"
+      aria-hidden="true"
+    >
       <defs>
         <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.55" />
@@ -697,7 +822,10 @@ function RadarChart({ axes }: { axes: { label: string; value: number }[] }) {
         fill="url(#radarFill)"
         stroke="#06b6d4"
         strokeWidth="1.5"
-        style={{ transformOrigin: `${cx}px ${cy}px`, filter: "drop-shadow(0 0 12px rgba(6,182,212,0.5))" }}
+        style={{
+          transformOrigin: `${cx}px ${cy}px`,
+          filter: "drop-shadow(0 0 12px rgba(6,182,212,0.5))",
+        }}
       />
       {axes.map((a, i) => {
         const [x, y] = point(i, radius * (a.value / 100));
@@ -736,12 +864,36 @@ function RadarChart({ axes }: { axes: { label: string; value: number }[] }) {
 /* Services                                                            */
 /* ------------------------------------------------------------------ */
 const services = [
-  { icon: Globe, title: "Web Development", desc: "Fast, accessible websites built with modern best practices and clean code." },
-  { icon: PenTool, title: "WordPress Development", desc: "Custom themes, plugins, and bespoke WP solutions that scale." },
-  { icon: Palette, title: "Webflow", desc: "Modern, responsive websites crafted with clean layouts, smooth interactions, and pixel-perfect design." },
-  { icon: ShoppingBag, title: "WooCommerce", desc: "High-performance stores with optimised checkouts and product pages." },
-  { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals tuning, caching, and image pipelines for lightning-fast loads." },
-  { icon: Wrench, title: "Website Maintenance", desc: "Updates, backups, monitoring, and ongoing improvements." },
+  {
+    icon: Globe,
+    title: "Web Development",
+    desc: "Fast, accessible websites built with modern best practices and clean code.",
+  },
+  {
+    icon: PenTool,
+    title: "WordPress Development",
+    desc: "Custom themes, plugins, and bespoke WP solutions that scale.",
+  },
+  {
+    icon: Palette,
+    title: "Webflow",
+    desc: "Modern, responsive websites crafted with clean layouts, smooth interactions, and pixel-perfect design.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "WooCommerce",
+    desc: "High-performance stores with optimised checkouts and product pages.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance Optimization",
+    desc: "Core Web Vitals tuning, caching, and image pipelines for lightning-fast loads.",
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    desc: "Updates, backups, monitoring, and ongoing improvements.",
+  },
 ];
 
 export function Services() {
@@ -750,7 +902,12 @@ export function Services() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Services"
-          title={<>End-to-end services for <span className="text-gradient">modern brands.</span></>}
+          title={
+            <>
+              End-to-end services for{" "}
+              <span className="text-gradient">modern brands.</span>
+            </>
+          }
         />
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
@@ -767,7 +924,9 @@ export function Services() {
                 <s.icon className="h-5 w-5" />
               </div>
               <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {s.desc}
+              </p>
               <div className="mt-5 inline-flex items-center gap-1 text-xs text-[var(--accent-cyan)] opacity-0 group-hover:opacity-100 transition-opacity">
                 Learn more <ArrowRight className="h-3.5 w-3.5" />
               </div>
@@ -816,9 +975,17 @@ export function Projects() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <SectionHeader
             eyebrow="Featured Projects"
-            title={<>Selected work from <span className="text-gradient">recent years.</span></>}
+            title={
+              <>
+                Selected work from{" "}
+                <span className="text-gradient">recent years.</span>
+              </>
+            }
           />
-          <a href="#" className="inline-flex items-center gap-1 text-sm text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)]">
+          <a
+            href="#"
+            className="inline-flex items-center gap-1 text-sm text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)]"
+          >
             View all projects <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -834,13 +1001,27 @@ export function Projects() {
 }
 
 function ProjectCard({
-  img, title, desc, tags, demo, repo, delay,
-}: typeof projects[number] & { delay: number }) {
+  img,
+  title,
+  desc,
+  tags,
+  demo,
+  repo,
+  delay,
+}: (typeof projects)[number] & { delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
-  const rx = useTransform(useSpring(my, { stiffness: 150, damping: 15 }), [-0.5, 0.5], [6, -6]);
-  const ry = useTransform(useSpring(mx, { stiffness: 150, damping: 15 }), [-0.5, 0.5], [-6, 6]);
+  const rx = useTransform(
+    useSpring(my, { stiffness: 150, damping: 15 }),
+    [-0.5, 0.5],
+    [6, -6],
+  );
+  const ry = useTransform(
+    useSpring(mx, { stiffness: 150, damping: 15 }),
+    [-0.5, 0.5],
+    [-6, 6],
+  );
 
   return (
     <motion.div
@@ -854,7 +1035,10 @@ function ProjectCard({
         mx.set((e.clientX - r.left) / r.width - 0.5);
         my.set((e.clientY - r.top) / r.height - 0.5);
       }}
-      onMouseLeave={() => { mx.set(0); my.set(0); }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
       className="group relative glass rounded-3xl border border-white/5 overflow-hidden hover:border-[var(--accent-cyan)]/40 transition-colors"
     >
@@ -880,19 +1064,34 @@ function ProjectCard({
       <div className="p-6">
         <div className="flex flex-wrap gap-1.5">
           {tags.map((t) => (
-            <span key={t} className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground">
+            <span
+              key={t}
+              className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground"
+            >
               {t}
             </span>
           ))}
         </div>
         <h3 className="mt-4 text-xl font-semibold">{title}</h3>
-        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+          {desc}
+        </p>
         <div className="mt-5 flex items-center gap-3">
-          <a href={demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)]">
+          <a
+            href={demo}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)]"
+          >
             Live Demo <ArrowUpRight className="h-3.5 w-3.5" />
           </a>
           <span className="h-3 w-px bg-white/10" />
-          <a href={repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground">
+          <a
+            href={repo}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground"
+          >
             <Github className="h-3.5 w-3.5" /> GitHub
           </a>
         </div>
@@ -905,9 +1104,24 @@ function ProjectCard({
 /* Experience timeline                                                 */
 /* ------------------------------------------------------------------ */
 const experience = [
-  { year: "Present", role: "WordPress Developer", company: "Building and maintaining high-performance WordPress websites with custom solutions, SEO, and optimization." },
-  { year: "Oct 2025 – Feb 2026", role: "WordPress Developer", company: "SardarIT", desc: "Developed 40+ responsive WordPress websites, WooCommerce stores, and optimized performance, security, and SEO." },
-  { year: "Jun 2025 – Aug 2025", role: "MERN Stack Developer", company: "9AM Solution", desc: "Built full-stack web applications using MongoDB, Express.js, React.js, and Node.js." },
+  {
+    year: "Present",
+    role: "WordPress Developer",
+    company:
+      "Building and maintaining high-performance WordPress websites with custom solutions, SEO, and optimization.",
+  },
+  {
+    year: "Oct 2025 – Feb 2026",
+    role: "WordPress Developer",
+    company: "SardarIT",
+    desc: "Developed 40+ responsive WordPress websites, WooCommerce stores, and optimized performance, security, and SEO.",
+  },
+  {
+    year: "Jun 2025 – Aug 2025",
+    role: "MERN Stack Developer",
+    company: "9AM Solution",
+    desc: "Built full-stack web applications using MongoDB, Express.js, React.js, and Node.js.",
+  },
 ];
 
 export function Experience() {
@@ -916,7 +1130,12 @@ export function Experience() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Experience"
-          title={<>A timeline of <span className="text-gradient">craft & growth.</span></>}
+          title={
+            <>
+              A timeline of{" "}
+              <span className="text-gradient">craft & growth.</span>
+            </>
+          }
         />
 
         <div className="mt-14 relative">
@@ -939,10 +1158,14 @@ export function Experience() {
                 </div>
                 <div className="pl-12 sm:pl-0 sm:w-1/2 sm:px-8">
                   <div className="glass rounded-2xl border border-white/5 p-5 hover:border-[var(--accent-cyan)]/30 transition-colors">
-                    <span className="text-xs font-semibold text-[var(--accent-cyan)]">{e.year}</span>
+                    <span className="text-xs font-semibold text-[var(--accent-cyan)]">
+                      {e.year}
+                    </span>
                     <h3 className="mt-1 text-lg font-semibold">{e.role}</h3>
                     <p className="text-sm text-muted-foreground">{e.company}</p>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                      {e.desc}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -958,16 +1181,35 @@ export function Experience() {
 /* Testimonials                                                        */
 /* ------------------------------------------------------------------ */
 const testimonials = [
-  { name: "John Doe", role: "CEO, Tech Solutions", text: "Rayhan delivered an exceptional website that exceeded our expectations. Highly recommended!" },
-  { name: "Sarah Smith", role: "Founder, Digital Agency", text: "Professional, creative, and always on time. Working with Rayhan was a great experience." },
-  { name: "Michael Brown", role: "Marketing Manager", text: "The design and performance of our website improved drastically. Amazing work!" },
-  { name: "Emily Carter", role: "Product Lead, Loom", text: "A rare blend of design taste and engineering rigour. We'd hire him again in a heartbeat." },
+  {
+    name: "John Doe",
+    role: "CEO, Tech Solutions",
+    text: "Rayhan delivered an exceptional website that exceeded our expectations. Highly recommended!",
+  },
+  {
+    name: "Sarah Smith",
+    role: "Founder, Digital Agency",
+    text: "Professional, creative, and always on time. Working with Rayhan was a great experience.",
+  },
+  {
+    name: "Michael Brown",
+    role: "Marketing Manager",
+    text: "The design and performance of our website improved drastically. Amazing work!",
+  },
+  {
+    name: "Emily Carter",
+    role: "Product Lead, Loom",
+    text: "A rare blend of design taste and engineering rigour. We'd hire him again in a heartbeat.",
+  },
 ];
 
 export function Testimonials() {
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % testimonials.length), 5000);
+    const t = setInterval(
+      () => setI((v) => (v + 1) % testimonials.length),
+      5000,
+    );
     return () => clearInterval(t);
   }, []);
 
@@ -976,7 +1218,12 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="What Clients Say"
-          title={<>Trusted by founders, <br className="hidden sm:block" /> agencies, and growing teams.</>}
+          title={
+            <>
+              Trusted by founders, <br className="hidden sm:block" /> agencies,
+              and growing teams.
+            </>
+          }
         />
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -990,7 +1237,9 @@ export function Testimonials() {
               className="glass rounded-3xl border border-white/5 p-6 hover:border-[var(--accent-cyan)]/30 transition-colors"
             >
               <Quote className="h-6 w-6 text-[var(--accent-cyan)]" />
-              <p className="mt-4 text-sm text-foreground/90 leading-relaxed">{t.text}</p>
+              <p className="mt-4 text-sm text-foreground/90 leading-relaxed">
+                {t.text}
+              </p>
               <div className="mt-5 flex items-center gap-1 text-[var(--accent-cyan)]">
                 {Array.from({ length: 5 }).map((_, k) => (
                   <Star key={k} className="h-3.5 w-3.5 fill-current" />
@@ -998,7 +1247,10 @@ export function Testimonials() {
               </div>
               <div className="mt-4 flex items-center gap-3 pt-4 border-t border-white/5">
                 <div className="h-10 w-10 rounded-full bg-gradient-primary grid place-items-center text-sm font-semibold text-white">
-                  {t.name.split(" ").map((n) => n[0]).join("")}
+                  {t.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
                 <div>
                   <div className="text-sm font-medium">{t.name}</div>
@@ -1025,7 +1277,10 @@ export function Testimonials() {
             </p>
             <div className="mt-5 text-sm">
               <span className="font-semibold">{testimonials[i].name}</span>
-              <span className="text-muted-foreground"> — {testimonials[i].role}</span>
+              <span className="text-muted-foreground">
+                {" "}
+                — {testimonials[i].role}
+              </span>
             </div>
           </motion.div>
           <div className="mt-6 flex gap-2">
@@ -1051,7 +1306,12 @@ export function Testimonials() {
 /* ------------------------------------------------------------------ */
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "ok">("idle");
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const submit = (e: FormEvent) => {
@@ -1075,16 +1335,35 @@ export function Contact() {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Let's Work Together"
-          title={<>Have a project in mind? <span className="text-gradient">Let's talk.</span></>}
+          title={
+            <>
+              Have a project in mind?{" "}
+              <span className="text-gradient">Let's talk.</span>
+            </>
+          }
         />
 
         <div className="mt-12 grid lg:grid-cols-5 gap-6">
           {/* Info */}
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "rayhankobir972@gmail.com", href: "mailto:rayhankobir972@gmail.com" },
-              { icon: Phone, label: "Phone", value: "+880 1318 924142", href: "tel:+8801318924142" },
-              { icon: MapPin, label: "Location", value: "Khilkhet, Dhaka, Bangladesh" },
+              {
+                icon: Mail,
+                label: "Email",
+                value: "rayhankobir972@gmail.com",
+                href: "mailto:rayhankobir972@gmail.com",
+              },
+              {
+                icon: Phone,
+                label: "Phone",
+                value: "+880 1318 924142",
+                href: "tel:+8801318924142",
+              },
+              {
+                icon: MapPin,
+                label: "Location",
+                value: "Khilkhet, Dhaka, Bangladesh",
+              },
             ].map((row) => (
               <a
                 key={row.label}
@@ -1096,7 +1375,9 @@ export function Contact() {
                     <row.icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-muted-foreground">{row.label}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {row.label}
+                    </div>
                     <div className="text-sm font-medium">{row.value}</div>
                   </div>
                 </div>
@@ -1143,7 +1424,9 @@ export function Contact() {
               onChange={(v) => setForm({ ...form, subject: v })}
             />
             <div>
-              <label className="block text-xs text-muted-foreground mb-2">Your Message</label>
+              <label className="block text-xs text-muted-foreground mb-2">
+                Your Message
+              </label>
               <textarea
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -1151,7 +1434,9 @@ export function Contact() {
                 className="w-full rounded-2xl bg-white/[0.03] border border-white/10 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-[var(--accent-cyan)]/60 focus:ring-2 focus:ring-[var(--accent-cyan)]/20 transition-colors resize-none"
                 placeholder="Tell me about your project..."
               />
-              {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
+              {errors.message && (
+                <p className="mt-1 text-xs text-red-400">{errors.message}</p>
+              )}
             </div>
             <button
               type="submit"
@@ -1181,7 +1466,11 @@ export function Contact() {
 }
 
 function Field({
-  label, value, onChange, type = "text", error,
+  label,
+  value,
+  onChange,
+  type = "text",
+  error,
 }: {
   label: string;
   value: string;
@@ -1191,7 +1480,9 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-xs text-muted-foreground mb-2">{label}</label>
+      <label className="block text-xs text-muted-foreground mb-2">
+        {label}
+      </label>
       <input
         type={type}
         value={value}
@@ -1244,7 +1535,9 @@ export function Footer() {
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Back to top"
         className={`fixed bottom-6 right-6 z-40 grid place-items-center h-12 w-12 rounded-2xl bg-gradient-primary text-white shadow-[0_0_30px_-8px_rgba(6,182,212,0.7)] transition-all ${
-          show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+          show
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
         <ArrowUp className="h-5 w-5" />
