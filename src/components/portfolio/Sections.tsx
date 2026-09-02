@@ -1,5 +1,23 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent, type SVGProps } from "react";
+import {
+  siWordpress,
+  siWoocommerce,
+  siElementor,
+  siFigma,
+  siGit,
+  siHtml5,
+  siTailwindcss,
+  siJavascript,
+  siReact,
+  siMysql,
+  siPhp,
+  siGithub,
+  siPostman,
+  siGooglechrome,
+  type SimpleIcon,
+} from "simple-icons";
+
 import {
   ArrowRight,
   ArrowUpRight,
@@ -29,14 +47,51 @@ import {
   Globe,
   Quote,
   ArrowUp,
+  BarChart3,
+  Code,
+  Package,
 } from "lucide-react";
 import profile from "@/assets/Rayhan_Potrait.png";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 
+/* ------------------------------------------------------------------ */
+/* Brand icons (simple-icons + inlined SVGs for missing brands)       */
+/* ------------------------------------------------------------------ */
+function SimpleIconSvg({ icon, className }: { icon: SimpleIcon; className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d={icon.path} />
+    </svg>
+  );
+}
+
+
+const PhotoshopIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 240 234" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M54,164.1V61.2c0-0.7,0.3-1.1,1-1.1c1.7,0,3.3,0,5.6-0.1c2.4-0.1,4.9-0.1,7.6-0.2c2.7-0.1,5.6-0.1,8.7-0.2c3.1-0.1,6.1-0.1,9.1-0.1c8.2,0,15,1,20.6,3.1c5,1.7,9.6,4.5,13.4,8.2c3.2,3.2,5.7,7.1,7.3,11.4c1.5,4.2,2.3,8.5,2.3,13c0,8.6-2,15.7-6,21.3c-4,5.6-9.6,9.8-16.1,12.2c-6.8,2.5-14.3,3.4-22.5,3.4c-2.4,0-4,0-5-0.1c-1-0.1-2.4-0.1-4.3-0.1v32.1c0.1,0.7-0.4,1.3-1.1,1.4c-0.1,0-0.2,0-0.4,0H55.2C54.4,165.4,54,165,54,164.1z M75.8,79.4V113c1.4,0.1,2.7,0.2,3.9,0.2H85c3.9,0,7.8-0.6,11.5-1.8c3.2-0.9,6-2.8,8.2-5.3c2.1-2.5,3.1-5.9,3.1-10.3c0.1-3.1-0.7-6.2-2.3-8.9c-1.7-2.6-4.1-4.6-7-5.7c-3.7-1.5-7.7-2.1-11.8-2c-2.6,0-4.9,0-6.8,0.1C77.9,79.2,76.5,79.3,75.8,79.4L75.8,79.4z" />
+    <path d="M192,106.9c-3-1.6-6.2-2.7-9.6-3.4c-3.7-0.8-7.4-1.3-11.2-1.3c-2-0.1-4.1,0.2-6,0.7c-1.3,0.3-2.4,1-3.1,2c-0.5,0.8-0.8,1.8-0.8,2.7c0,0.9,0.4,1.8,1,2.6c0.9,1.1,2.1,2,3.4,2.7c2.3,1.2,4.7,2.3,7.1,3.3c5.4,1.8,10.6,4.3,15.4,7.3c3.3,2.1,6,4.9,7.9,8.3c1.6,3.2,2.4,6.7,2.3,10.3c0.1,4.7-1.3,9.4-3.9,13.3c-2.8,4-6.7,7.1-11.2,8.9c-4.9,2.1-10.9,3.2-18.1,3.2c-4.6,0-9.1-0.4-13.6-1.3c-3.5-0.6-7-1.7-10.2-3.2c-0.7-0.4-1.2-1.1-1.1-1.9v-17.4c0-0.3,0.1-0.7,0.4-0.9c0.3-0.2,0.6-0.1,0.9,0.1c3.9,2.3,8,3.9,12.4,4.9c3.8,1,7.8,1.5,11.8,1.5c3.8,0,6.5-0.5,8.3-1.4c1.6-0.7,2.7-2.4,2.7-4.2c0-1.4-0.8-2.7-2.4-4c-1.6-1.3-4.9-2.8-9.8-4.7c-5.1-1.8-9.8-4.2-14.2-7.2c-3.1-2.2-5.7-5.1-7.6-8.5c-1.6-3.2-2.4-6.7-2.3-10.2c0-4.3,1.2-8.4,3.4-12.1c2.5-4,6.2-7.2,10.5-9.2c4.7-2.4,10.6-3.5,17.7-3.5c4.1,0,8.3,0.3,12.4,0.9c3,0.4,5.9,1.2,8.6,2.3c0.4,0.1,0.8,0.5,1,0.9c0.1,0.4,0.2,0.8,0.2,1.2v16.3c0,0.4-0.2,0.8-0.5,1C192.9,107.1,192.4,107.1,192,106.9z" />
+  </svg>
+);
+
+const IllustratorIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 250 250" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M122.11,66.15h-37.41l-42.97,115.62h33.48l5.58-17.27h42.98l5.58,17.27h34.5l-41.73-115.62ZM102.27,135.65h-12.17l12.17-37.69,12.17,37.69h-12.17Z" />
+    <rect x="168.12" y="90.74" width="30.98" height="91.03" />
+    <path d="M200.12,74.28c.09,8.49-6.78,14.49-16.5,14.41-9.73.08-16.59-5.92-16.5-14.41-.09-8.49,6.78-14.49,16.5-14.41,9.73-.08,16.59,5.92,16.5,14.41Z" />
+  </svg>
+);
+
+const VSCodeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M23.15 2.587L18.21.747a1.5 1.5 0 0 0-1.72.385L8.21 9.54 4.59 6.55a1.12 1.12 0 0 0-1.5.12L.87 9.05a1.12 1.12 0 0 0 .12 1.67L3.71 13 .99 15.28a1.12 1.12 0 0 0-.12 1.67l2.22 2.38a1.12 1.12 0 0 0 1.5.12l3.62-2.99 8.28 8.408a1.5 1.5 0 0 0 1.72.385l4.94-1.84a1.5 1.5 0 0 0 .99-1.41V4a1.5 1.5 0 0 0-.99-1.413zM18.17 19.07L10.5 12l7.67-7.07v14.14z" />
+  </svg>
+);
+
 const goTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
 
 /* ------------------------------------------------------------------ */
 /* Hero                                                                */
@@ -69,8 +124,8 @@ export function Hero() {
           </h1>
           <p className="mt-5 text-lg sm:text-xl font-semibold text-foreground">
             WordPress Developer{" "}
-            <span className="text-muted-foreground font-normal">&</span>{" "}
-            UI/UX Designer
+            {/* <span className="text-muted-foreground font-normal">&</span>{" "}
+            UI/UX Designer */}
           </p>
           <p className="mt-4 max-w-lg text-base text-muted-foreground leading-relaxed">
             I craft modern, responsive WordPress websites and beautiful user
@@ -101,10 +156,12 @@ export function Hero() {
             </p>
             <div className="flex gap-3">
               {[
-                { Icon: Github, href: "https://github.com" },
-                { Icon: Linkedin, href: "https://linkedin.com" },
-                { Icon: Dribbble, href: "https://dribbble.com" },
-                { Icon: Twitter, href: "https://twitter.com" },
+                { Icon: Mail, href: "https://rayhankobir972@gmail.com" },
+                { Icon: Github, href: "https://github.com/RayhanKobir972" },
+                { Icon: Linkedin, href: "https://linkedin.com/in/rayhan-kobir972" },
+                // { Icon: Dribbble, href: "https://dribbble.com" },
+                // { Icon: Twitter, href: "https://twitter.com" },
+                
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
@@ -125,14 +182,14 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.1 }}
-          className="relative h-[460px] sm:h-[540px] flex items-center justify-center"
+          className="relative h-[540px] sm:h-[600px] flex items-center justify-center"
         >
           {/* Glow ring */}
           <div className="absolute inset-0 grid place-items-center">
-            <div className="h-[380px] w-[380px] sm:h-[440px] sm:w-[440px] rounded-full bg-gradient-primary opacity-30 blur-3xl animate-pulse-glow" />
+            <div className="h-[440px] w-[440px] sm:h-[540px] sm:w-[540px] rounded-full bg-gradient-primary opacity-30 blur-3xl animate-pulse-glow" />
           </div>
           <div className="absolute inset-0 grid place-items-center">
-            <div className="relative h-[340px] w-[340px] sm:h-[400px] sm:w-[400px] rounded-full">
+            <div className="relative h-[420px] w-[420px] sm:h-[480px] sm:w-[480px] rounded-full">
               <div className="absolute inset-0 rounded-full border border-[var(--accent-cyan)]/30 animate-spin-slow" style={{ boxShadow: "inset 0 0 60px rgba(6,182,212,0.15)" }} />
               <div className="absolute inset-3 rounded-full border border-white/5" />
               <div className="absolute -inset-2 rounded-full border border-dashed border-white/10 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
@@ -144,7 +201,7 @@ export function Hero() {
             alt="Rayhan Kobir portrait"
             width={1024}
             height={1024}
-            className="relative z-10 h-[380px] w-[380px] sm:h-[440px] sm:w-[440px] object-cover rounded-full"
+            className="relative z-10 h-[420px] w-[420px] sm:h-[480px] sm:w-[480px] object-cover rounded-full"
             style={{ maskImage: "radial-gradient(circle, black 70%, transparent 100%)" }}
           />
 
@@ -153,7 +210,7 @@ export function Hero() {
             className="top-4 -right-2 sm:right-4"
             delay={0.4}
             icon={<Briefcase className="h-4 w-4 text-[var(--accent-cyan)]" />}
-            title="5+"
+            title="1+"
             subtitle="Years of Experience"
           />
           <FloatCard
@@ -216,9 +273,9 @@ function FloatCard({
 /* ------------------------------------------------------------------ */
 const stats = [
   { icon: Smile, value: "50+", label: "Happy Clients" },
-  { icon: Briefcase, value: "120+", label: "Projects Completed" },
-  { icon: Trophy, value: "5+", label: "Years Experience" },
-  { icon: Star, value: "10+", label: "Awards Received" },
+  { icon: Briefcase, value: "80+", label: "Projects Completed" },
+  { icon: Trophy, value: "1+", label: "Years Experience" },
+  { icon: Star, value: "5+", label: "Awards Received" },
 ];
 
 export function Stats() {
@@ -286,13 +343,13 @@ export function About() {
             title={<>Crafting digital experiences that <span className="text-gradient">inspire.</span></>}
           />
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-lg">
-            I'm a passionate WordPress developer and UI/UX designer with a sharp
+            I'm a passionate WordPress developer with a sharp
             eye for detail and a love for creating seamless digital
             experiences. I combine creativity and technology to build websites
             that are fast, responsive, and genuinely user-friendly.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed max-w-lg">
-            Over the last five years I've shipped 120+ projects for startups,
+            Over the last one years I've shipped 80+ projects for startups,
             agencies, and growing businesses — from luxury real-estate
             platforms to high-conversion WooCommerce stores.
           </p>
@@ -322,10 +379,10 @@ export function About() {
           className="glass rounded-3xl border border-white/5 p-6 sm:p-8 space-y-4"
         >
           {[
-            { icon: Smile, label: "Name", value: "Rayhan Ahmed" },
-            { icon: Mail, label: "Email", value: "hello@rayhan.dev" },
+            { icon: Smile, label: "Name", value: "Md. Rayhan Kobir" },
+            { icon: Mail, label: "Email", value: "rayhankobir972@gmail.com" },
             { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
-            { icon: Briefcase, label: "Experience", value: "5+ Years (WordPress, UI/UX)" },
+            { icon: Briefcase, label: "Experience", value: "1+ Years (WordPress)" },
             { icon: Globe, label: "Availability", value: "Open to freelance & contract" },
           ].map((row) => (
             <div key={row.label} className="flex items-center gap-4 p-3 rounded-2xl border border-white/5 bg-white/[0.02]">
@@ -347,89 +404,331 @@ export function About() {
 /* ------------------------------------------------------------------ */
 /* Skills                                                              */
 /* ------------------------------------------------------------------ */
-const skills = [
-  { name: "WordPress", value: 95 },
-  { name: "WooCommerce", value: 92 },
-  { name: "Elementor", value: 94 },
-  { name: "PHP", value: 88 },
-  { name: "JavaScript", value: 86 },
-  { name: "React", value: 82 },
-  { name: "Next.js", value: 78 },
-  { name: "Figma", value: 93 },
-  { name: "Photoshop", value: 85 },
-  { name: "Illustrator", value: 80 },
+const AdobeXdIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M14.31 11.45l3.32-5.45h-2.2l-2.22 3.85L11 6h-2.2l3.31 5.42L8.5 17h2.18l2.43-4.2L15.55 17h2.2l-3.44-5.55zM3 2h18a1 1 0 011 1v18a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm1 2v16h16V4H4z" />
+  </svg>
+);
+
+type IconLike = SimpleIcon | React.FC<SVGProps<SVGSVGElement>>;
+
+function isSimpleIcon(icon: IconLike): icon is SimpleIcon {
+  return "path" in icon && typeof (icon as SimpleIcon).path === "string";
+}
+
+function BrandIcon({ icon, className }: { icon: IconLike; className?: string }) {
+  if (isSimpleIcon(icon)) return <SimpleIconSvg icon={icon} className={className} />;
+  const C = icon;
+  return <C className={className} />;
+}
+
+const technicalSkills: { name: string; value: number; icon: IconLike }[] = [
+  { name: "WordPress", value: 95, icon: siWordpress },
+  { name: "HTML / CSS", value: 95, icon: siHtml5 },
+  { name: "PHP", value: 70, icon: siPhp },
+  { name: "Tailwind CSS", value: 90, icon: siTailwindcss },
+  { name: "JavaScript", value: 90, icon: siJavascript },
+  { name: "Elementor", value: 95, icon: siElementor },
+  { name: "React", value: 85, icon: siReact },
+  { name: "WooCommerce", value: 95, icon: siWoocommerce },
+  { name: "MySQL", value: 85, icon: siMysql },
+  { name: "Git & GitHub", value: 85, icon: siGithub },
 ];
 
-const tools = [
-  "WordPress", "WooCommerce", "Elementor", "Figma",
-  "Photoshop", "Illustrator", "VS Code", "Git",
+const tools: { name: string; icon: IconLike }[] = [
+  { name: "VS Code", icon: VSCodeIcon },
+  { name: "Figma", icon: siFigma },
+  { name: "Photoshop", icon: PhotoshopIcon },
+  { name: "Postman", icon: siPostman },
+  { name: "Chrome DevTools", icon: siGooglechrome },
+  { name: "cPanel Hosting", icon: Globe },
+  { name: "Git & GitHub", icon: siGithub },
+];
+
+const overviewStats = [
+  { value: "10+", label: "Technologies" },
+  { value: "1+", label: "Years Experience" },
+  { value: "80+", label: "Projects Completed" },
+];
+
+const radarAxes = [
+  { label: "Frontend", value: 95 },
+  { label: "Backend", value: 90 },
+  { label: "Design", value: 90 },
+  { label: "Performance", value: 85 },
+  { label: "Problem Solving", value: 95 },
 ];
 
 export function Skills() {
   return (
     <section id="skills" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          eyebrow="My Skills"
-          title={<>Tools & technologies <br className="hidden sm:block" /> I work with daily.</>}
-          desc="A curated stack refined over years of shipping production-ready websites."
-        />
+        {/* Centered header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mx-auto max-w-3xl"
+        >
+          <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-[var(--accent-cyan)] font-semibold">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-[var(--accent-cyan)]/60" />
+            My Skills
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-[var(--accent-cyan)]/60" />
+          </div>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            Skills That Power My <span className="text-gradient">Creativity</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            A blend of technical expertise, creative thinking, and problem-solving abilities that help me build exceptional digital experiences.
+          </p>
+        </motion.div>
 
-        <div className="mt-14 grid lg:grid-cols-2 gap-10 lg:gap-16">
-          <div className="space-y-5">
-            {skills.map((s, i) => (
-              <SkillBar key={s.name} {...s} delay={i * 0.05} />
-            ))}
+        {/* Two-card row */}
+        <div className="mt-14 grid lg:grid-cols-5 gap-6">
+          {/* Skills Overview */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2 glass rounded-3xl border border-white/5 p-6 sm:p-8 hover:border-[var(--accent-cyan)]/30 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <span className="grid place-items-center h-9 w-9 rounded-xl bg-[rgba(6,182,212,0.1)] border border-[var(--accent-cyan)]/30">
+                <BarChart3 className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
+              </span>
+              <h3 className="text-lg font-semibold">Skills Overview</h3>
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3 border-b border-white/5 pb-6">
+              {overviewStats.map((s) => (
+                <div key={s.label} className="text-center">
+                  <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{s.value}</div>
+                  <div className="mt-1 text-[11px] text-muted-foreground">{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid place-items-center">
+              <RadarChart axes={radarAxes} />
+            </div>
+
+            <div className="mt-6">
+              <a
+                href="#contact"
+                onClick={(e) => { e.preventDefault(); goTo("contact"); }}
+                className="inline-flex items-center gap-2 rounded-xl glass border border-white/10 px-4 py-2.5 text-xs font-medium hover:border-[var(--accent-cyan)]/40 hover:-translate-y-0.5 transition-all"
+              >
+                <Download className="h-3.5 w-3.5 text-[var(--accent-cyan)]" />
+                View Full Resume
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Technical Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-3 glass rounded-3xl border border-white/5 p-6 sm:p-8 hover:border-[var(--accent-cyan)]/30 transition-colors"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="grid place-items-center h-9 w-9 rounded-xl bg-[rgba(6,182,212,0.1)] border border-[var(--accent-cyan)]/30 shrink-0">
+                  <Code className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
+                </span>
+                <h3 className="text-lg font-semibold truncate">Technical Skills</h3>
+              </div>
+              <a href="#" className="inline-flex items-center gap-1 text-xs text-[var(--accent-cyan)] hover:text-[var(--accent-cyan-hover)] shrink-0">
+                View All Skills <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-3">
+              {technicalSkills.map((s, i) => (
+                <SkillRow key={s.name} {...s} delay={i * 0.04} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Tools I Use */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-6 glass rounded-3xl border border-white/5 p-6 sm:p-8 hover:border-[var(--accent-cyan)]/30 transition-colors"
+        >
+          <div className="flex items-center gap-3">
+            <span className="grid place-items-center h-9 w-9 rounded-xl bg-[rgba(6,182,212,0.1)] border border-[var(--accent-cyan)]/30">
+              <Package className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
+            </span>
+            <h3 className="text-lg font-semibold">Tools I Use</h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
             {tools.map((t, i) => (
               <motion.div
-                key={t}
+                key={t.name}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                whileHover={{ y: -6, rotate: -2 }}
-                className="glass rounded-2xl border border-white/5 p-5 flex flex-col items-center gap-3 hover:border-[var(--accent-cyan)]/40 transition-colors"
+                whileHover={{ y: -4 }}
+                className="group glass rounded-2xl border border-white/5 p-4 flex flex-col items-center gap-2.5 hover:border-[var(--accent-cyan)]/40 transition-colors"
               >
-                <div className="grid place-items-center h-12 w-12 rounded-xl bg-gradient-primary/20 border border-[var(--accent-cyan)]/20" style={{ background: "rgba(6,182,212,0.08)" }}>
-                  <span className="font-display font-bold text-[var(--accent-cyan-hover)]">
-                    {t.slice(0, 2).toUpperCase()}
-                  </span>
+                <div className="grid place-items-center h-14 w-14 rounded-xl bg-white/[0.03] border border-white/5 group-hover:border-[var(--accent-cyan)]/30 group-hover:shadow-[0_0_20px_-4px_rgba(6,182,212,0.5)] transition-all">
+                  <BrandIcon icon={t.icon} className="h-7 w-7 text-[var(--accent-cyan-hover)]" />
                 </div>
-                <span className="text-xs text-muted-foreground text-center">{t}</span>
+                <span className="text-[11px] text-muted-foreground text-center leading-tight">{t.name}</span>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
-function SkillBar({ name, value, delay }: { name: string; value: number; delay: number }) {
+function SkillRow({
+  name, value, icon, delay,
+}: { name: string; value: number; icon: IconLike; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   return (
-    <div ref={ref}>
-      <div className="flex items-baseline justify-between mb-2">
-        <span className="text-sm font-medium text-foreground">{name}</span>
-        <span className="text-xs text-muted-foreground tabular-nums">{value}%</span>
-      </div>
-      <div className="h-2 rounded-full bg-white/5 overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={inView ? { width: `${value}%` } : { width: 0 }}
-          transition={{ duration: 1.2, delay, ease: "easeOut" }}
-          className="h-full rounded-full"
-          style={{
-            background: "linear-gradient(90deg,#06b6d4,#3b82f6)",
-            boxShadow: "0 0 16px rgba(6,182,212,0.6)",
-          }}
-        />
+    <div
+      ref={ref}
+      className="group rounded-2xl border border-white/5 bg-white/[0.02] p-3.5 hover:border-[var(--accent-cyan)]/30 hover:bg-white/[0.04] transition-colors"
+    >
+      <div className="flex items-center gap-3">
+        <div className="grid place-items-center h-10 w-10 rounded-xl bg-white/[0.03] border border-white/5 shrink-0 group-hover:border-[var(--accent-cyan)]/30 transition-colors">
+          <BrandIcon icon={icon} className="h-5 w-5 text-[var(--accent-cyan-hover)]" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-baseline justify-between gap-2">
+            <span className="text-sm font-medium text-foreground truncate">{name}</span>
+            <span className="text-[11px] text-muted-foreground tabular-nums shrink-0">{value}%</span>
+          </div>
+          <div className="mt-2 relative h-1.5 rounded-full bg-white/5 overflow-visible">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={inView ? { width: `${value}%` } : { width: 0 }}
+              transition={{ duration: 1.2, delay, ease: "easeOut" }}
+              className="h-full rounded-full relative"
+              style={{
+                background: "linear-gradient(90deg,#06b6d4,#3b82f6)",
+                boxShadow: "0 0 12px rgba(6,182,212,0.6)",
+              }}
+            >
+              <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[var(--accent-cyan)] shadow-[0_0_10px_rgba(6,182,212,0.9)]" />
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
+  );
+}
+
+function RadarChart({ axes }: { axes: { label: string; value: number }[] }) {
+  const size = 260;
+  const cx = size / 2;
+  const cy = size / 2;
+  const radius = 92;
+  const n = axes.length;
+
+  const point = (i: number, r: number) => {
+    const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+    return [cx + Math.cos(angle) * r, cy + Math.sin(angle) * r] as const;
+  };
+
+  const rings = [0.25, 0.5, 0.75, 1];
+  const dataPath = axes
+    .map((a, i) => {
+      const [x, y] = point(i, radius * (a.value / 100));
+      return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(2)}`;
+    })
+    .join(" ") + " Z";
+
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} className="w-full max-w-[280px] h-auto" aria-hidden="true">
+      <defs>
+        <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.15" />
+        </radialGradient>
+      </defs>
+      {rings.map((r, i) => (
+        <polygon
+          key={i}
+          points={axes
+            .map((_, j) => {
+              const [x, y] = point(j, radius * r);
+              return `${x},${y}`;
+            })
+            .join(" ")}
+          fill="none"
+          stroke="rgba(255,255,255,0.06)"
+          strokeWidth="1"
+        />
+      ))}
+      {axes.map((_, i) => {
+        const [x, y] = point(i, radius);
+        return (
+          <line
+            key={i}
+            x1={cx}
+            y1={cy}
+            x2={x}
+            y2={y}
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth="1"
+          />
+        );
+      })}
+      <motion.path
+        initial={{ opacity: 0, scale: 0.6 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+        d={dataPath}
+        fill="url(#radarFill)"
+        stroke="#06b6d4"
+        strokeWidth="1.5"
+        style={{ transformOrigin: `${cx}px ${cy}px`, filter: "drop-shadow(0 0 12px rgba(6,182,212,0.5))" }}
+      />
+      {axes.map((a, i) => {
+        const [x, y] = point(i, radius * (a.value / 100));
+        return <circle key={i} cx={x} cy={y} r={3.5} fill="#06b6d4" />;
+      })}
+      {axes.map((a, i) => {
+        const [x, y] = point(i, radius + 22);
+        return (
+          <g key={a.label}>
+            <text
+              x={x}
+              y={y - 4}
+              textAnchor="middle"
+              className="fill-muted-foreground"
+              style={{ fontSize: 10 }}
+            >
+              {a.label}
+            </text>
+            <text
+              x={x}
+              y={y + 8}
+              textAnchor="middle"
+              fill="#22d3ee"
+              style={{ fontSize: 10, fontWeight: 600 }}
+            >
+              {a.value}%
+            </text>
+          </g>
+        );
+      })}
+    </svg>
   );
 }
 
@@ -439,7 +738,7 @@ function SkillBar({ name, value, delay }: { name: string; value: number; delay: 
 const services = [
   { icon: Globe, title: "Web Development", desc: "Fast, accessible websites built with modern best practices and clean code." },
   { icon: PenTool, title: "WordPress Development", desc: "Custom themes, plugins, and bespoke WP solutions that scale." },
-  { icon: Palette, title: "UI/UX Design", desc: "Interfaces that feel intentional — pixel-perfect, on-brand, and conversion-driven." },
+  { icon: Palette, title: "Webflow", desc: "Modern, responsive websites crafted with clean layouts, smooth interactions, and pixel-perfect design." },
   { icon: ShoppingBag, title: "WooCommerce", desc: "High-performance stores with optimised checkouts and product pages." },
   { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals tuning, caching, and image pipelines for lightning-fast loads." },
   { icon: Wrench, title: "Website Maintenance", desc: "Updates, backups, monitoring, and ongoing improvements." },
@@ -606,10 +905,9 @@ function ProjectCard({
 /* Experience timeline                                                 */
 /* ------------------------------------------------------------------ */
 const experience = [
-  { year: "2024", role: "Senior WordPress Developer", company: "Freelance / Remote", desc: "Leading bespoke WordPress builds for global brands and agencies." },
-  { year: "2022", role: "UI/UX Designer & Developer", company: "Pixelhaus Studio", desc: "Designed and shipped 40+ websites across SaaS, agency, and e-commerce." },
-  { year: "2020", role: "WordPress Developer", company: "Codepath Agency", desc: "Built custom themes and high-performance WooCommerce stores." },
-  { year: "2019", role: "Front-end Developer", company: "Bluewave", desc: "Started professional career building responsive marketing sites." },
+  { year: "Present", role: "WordPress Developer", company: "Building and maintaining high-performance WordPress websites with custom solutions, SEO, and optimization." },
+  { year: "Oct 2025 – Feb 2026", role: "WordPress Developer", company: "SardarIT", desc: "Developed 40+ responsive WordPress websites, WooCommerce stores, and optimized performance, security, and SEO." },
+  { year: "Jun 2025 – Aug 2025", role: "MERN Stack Developer", company: "9AM Solution", desc: "Built full-stack web applications using MongoDB, Express.js, React.js, and Node.js." },
 ];
 
 export function Experience() {
@@ -784,9 +1082,9 @@ export function Contact() {
           {/* Info */}
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Mail, label: "Email", value: "hello@rayhan.dev", href: "mailto:hello@rayhan.dev" },
-              { icon: Phone, label: "Phone", value: "+880 123 456 7890", href: "tel:+8801234567890" },
-              { icon: MapPin, label: "Location", value: "Dhaka, Bangladesh" },
+              { icon: Mail, label: "Email", value: "rayhankobir972@gmail.com", href: "mailto:rayhankobir972@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+880 1318 924142", href: "tel:+8801318924142" },
+              { icon: MapPin, label: "Location", value: "Khilkhet, Dhaka, Bangladesh" },
             ].map((row) => (
               <a
                 key={row.label}
